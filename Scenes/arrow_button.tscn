@@ -33,3 +33,10 @@ shape = SubResource("RectangleShape2D_1l0tm")
 debug_color = Color(0.72944677, 0.4236925, 0.56939113, 0.41960785)
 
 [node name="PushTimer" type="Timer" parent="." unique_id=182217403]
+
+[connection signal="body_entered" from="Great area" to="." method="_on_great_area_entered"]
+[connection signal="body_exited" from="Great area" to="." method="_on_great_area_exited"]
+[connection signal="body_entered" from="Good area" to="." method="_on_good_area_entered"]
+[connection signal="body_exited" from="Good area" to="." method="_on_good_area_exited"]
+[connection signal="body_entered" from="Meh area" to="." method="_on_meh_area_entered"]
+[connection signal="body_exited" from="Meh area" to="." method="_on_meh_area_exited"]

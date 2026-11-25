@@ -30,29 +30,32 @@ func _unhandled_input(event: InputEvent) -> void:
 			$PushTimer.start()
 
 
-#func on_great_area_entered(area):
-	#if area.is_in_group("note"):
-		#great = true
-#
-#func on_great_area_exited(area):
-	#if area.is_in_group("note"):
-		#great = false
-#
-#func on_good_area_entered(area):
-	#if good.is_in_group("note"):
-		#great = true
-#
-#func on_good_area_exited(area):
-	#if area.is_in_group("note"):
-		#good = false
-#
-#func on_meh_area_entered(area):
-	#if area.is_in_group("note"):
-		#meh = true
-#
-#func on_meh_area_exited(area):
-	#if area.is_in_group("note"):
-		#meh = false
+func _on_great_area_entered(area):
+	if area.is_in_group("note"):
+		great = true
+
+func _on_great_area_exited(area):
+	if area.is_in_group("note"):
+		great = false
+
+func _on_good_area_entered(area):
+	if area.is_in_group("note"):
+		good = true
+
+func _on_good_area_exited(area):
+	if area.is_in_group("note"):
+		good = false
+
+func _on_meh_area_entered(area):
+	if area.is_in_group("note"):
+		meh = true
+		current_note = area
+
+
+func _on_meh_area_exited(area):
+	if area.is_in_group("note"):
+		meh = false
+		current_note = null
 
 func _reset():
 	current_note = null
