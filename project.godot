@@ -29,6 +29,10 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+note=""
+
 [input]
 
 left={

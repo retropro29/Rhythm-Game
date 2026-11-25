@@ -32,18 +32,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Note" type="Area2D" unique_id=561678300]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcfas"]
+size = Vector2(60, 60)
+
+[node name="Note" type="Area2D" unique_id=561678300 groups=["note"]]
 script = ExtResource("1_ucs03")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74485707]
+position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_poybh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281053081]
+shape = SubResource("RectangleShape2D_wcfas")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=912881397]
+
+[node name="Timer" type="Timer" parent="." unique_id=817564610]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1886597309]
 
 [node name="Label" type="Label" parent="Node2D" unique_id=1308452076]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

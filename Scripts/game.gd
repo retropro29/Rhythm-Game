@@ -60,6 +60,7 @@ func _on_Conductor_beat(position):
 		$Global.missed = missed
 
 func _spawn_notes(to_spawn):
+	print("note spawned")
 	if to_spawn > 0:
 		lane = randi() % 3 + 1
 		instance = note.instantiate()

@@ -37,7 +37,7 @@ func initialize(lane) -> void:
 
 func destroy(score):
 	$CPUParticles2D.emitting = true
-	$AnimatedSprite.visible = false
+	$AnimatedSprite2D.visible = false
 	$Timer.start()
 	hit = true
 	if score == 3:
@@ -50,5 +50,6 @@ func destroy(score):
 		$Node2D/Label.text = "MEH"
 		$Node2D/Label.modulate = Color("997577")
 
-func _on_Timer_timeout():
+
+func _on_timer_timeout() -> void:
 	queue_free()
