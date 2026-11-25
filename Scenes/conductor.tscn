@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cox345px8b1rx"]
+
+[ext_resource type="AudioStream" uid="uid://dlmcrt5xlrt24" path="res://Assets/Ove Melaa - High Stakes,Low Chances.mp3" id="1_bhvky"]
+[ext_resource type="Script" uid="uid://m17n2ar32pxm" path="res://Scripts/conductor.gd" id="2_lxpo4"]
+
+[node name="Conductor" type="AudioStreamPlayer" unique_id=1535203407]
+stream = ExtResource("1_bhvky")
+script = ExtResource("2_lxpo4")
+bpm = null
+measures = null
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1536610816]
