@@ -90,16 +90,16 @@ offset_right = 40.0
 offset_bottom = 46.0
 
 [node name="LeftArrow" parent="." unique_id=35118322 instance=ExtResource("4_wowpa")]
-position = Vector2(568, 568)
+position = Vector2(496, 568)
 sprite_frames = SubResource("SpriteFrames_5fhvk")
 input = "left"
 
 [node name="UpArrow" parent="." unique_id=2465652 instance=ExtResource("4_wowpa")]
-position = Vector2(648, 568)
+position = Vector2(576, 568)
 sprite_frames = SubResource("SpriteFrames_wcfas")
 input = "up"
 
 [node name="RightArrow" parent="." unique_id=893010684 instance=ExtResource("4_wowpa")]
-position = Vector2(728, 568)
+position = Vector2(656, 568)
 sprite_frames = SubResource("SpriteFrames_w0yuj")
 input = "right"
