@@ -6,7 +6,5 @@
 [node name="Conductor" type="AudioStreamPlayer" unique_id=1535203407]
 stream = ExtResource("1_bhvky")
 script = ExtResource("2_lxpo4")
-bpm = null
-measures = null
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1536610816]

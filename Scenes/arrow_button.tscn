@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://b36cvbxjxvbam"]
 
+[ext_resource type="Script" uid="uid://bfyr5ck2p73ej" path="res://Scripts/arrow_button.gd" id="1_5fhvk"]
+
 [node name="ArrowButton" type="AnimatedSprite2D" unique_id=35118322]
+script = ExtResource("1_5fhvk")
+
+[node name="Great area" type="Area2D" parent="." unique_id=1293499227]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Great area" unique_id=264705089]
+
+[node name="Good area" type="Area2D" parent="." unique_id=168210508]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good area" unique_id=1389481141]
+
+[node name="Meh area" type="Area2D" parent="." unique_id=1988516357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meh area" unique_id=1993081700]
+
+[node name="PushTimer" type="Timer" parent="." unique_id=182217403]
