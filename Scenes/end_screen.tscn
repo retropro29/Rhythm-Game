@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://get7j40tbf6h"]
+
+[ext_resource type="Script" uid="uid://bs7dlvunplka0" path="res://Scripts/canvas_layer.gd" id="1_f2mtv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ptfn"]
+line_spacing = 10.0
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="End screen" type="CanvasLayer" unique_id=750390741]
+script = ExtResource("1_f2mtv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=478742840]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grade" type="Label" parent="." unique_id=1610246275]
+offset_top = 63.0
+offset_right = 479.0
+offset_bottom = 122.0
+text = "AAAAAAAAA"
+label_settings = SubResource("LabelSettings_1ptfn")
+
+[node name="Score" type="Label" parent="." unique_id=623182194]
+offset_top = 110.0
+offset_right = 40.0
+offset_bottom = 133.0
+
+[node name="Combo" type="Label" parent="." unique_id=587713450]
+offset_top = 142.0
+offset_right = 40.0
+offset_bottom = 165.0
+
+[node name="Great" type="Label" parent="." unique_id=346836742]
+offset_left = 4.0
+offset_top = 215.0
+offset_right = 44.0
+offset_bottom = 238.0
+
+[node name="Good" type="Label" parent="." unique_id=2116824639]
+offset_left = -1.0
+offset_top = 260.0
+offset_right = 140.0
+offset_bottom = 283.0
+
+[node name="Meh" type="Label" parent="." unique_id=1790490552]
+offset_left = 4.0
+offset_top = 323.0
+offset_right = 44.0
+offset_bottom = 346.0
+
+[node name="Missed" type="Label" parent="." unique_id=659962830]
+offset_left = 3.0
+offset_top = 340.0
+offset_right = 43.0
+offset_bottom = 363.0

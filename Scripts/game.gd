@@ -51,13 +51,17 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 404:
+	if song_position_in_beats > 204:
+		print("song over")
 		$Global.set_score(score)
 		$Global.combo = max_combo
 		$Global.great = great
 		$Global.good = good
 		$Global.meh = meh
 		$Global.missed = missed
+		if get_tree().change_scene_to_file("res://Scenes/end_screen.tscn") != OK:
+			print("Error changing scenes")
+
 
 func _spawn_notes(to_spawn):
 	print("note spawned")
