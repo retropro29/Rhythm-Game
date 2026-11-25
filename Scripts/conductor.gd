@@ -3,6 +3,8 @@ extends AudioStreamPlayer
 @export var bpm: = 100
 @export var measures: = 4
 
+@onready var global: Node2D = $"../Global"
+
 
 #Tracks beat + song pos
 var song_position = 0.0
@@ -29,7 +31,7 @@ func _report_beat():
 	if last_reported_beat < song_position_in_beats:
 		if measure > measures:
 			measure = 1
-		Global.beat.emit(song_position_in_beats)
+		global.beat.emit(song_position_in_beats)
 		global.measure.emit(measure)
 		last_reported_beat = song_position_in_beats
 		measure += 1
