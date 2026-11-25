@@ -17,6 +17,11 @@ var rand = 0
 var note = load("res://Scenes/note.tscn")
 var instance
 
+var spawn_1_beat = 0
+var spawn_2_beat = 0
+var spawn_3_beat = 1
+var spawn_4_beat = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
@@ -30,37 +35,45 @@ func _input(event):
 			print("Error changing scenes")
 
 func _on_Conductor_measure(position):
-	return
-	#if position == 1:
-		#_spawn_notes(spawn_1_beat)
-	#elif position == 2:
-		#_spawn_notes(spawn_2_beat)
-	#elif position == 3:
-		#_spawn_notes(spawn_3_beat)
-	#elif position == 4:
-		#_spawn_notes(spawn_4_beat)
+	if position == 1:
+		_spawn_notes(spawn_1_beat)
+	elif position == 2:
+		_spawn_notes(spawn_2_beat)
+	elif position == 3:
+		_spawn_notes(spawn_3_beat)
+	elif position == 4:
+		_spawn_notes(spawn_4_beat)
 
 func _on_Conductor_beat(position):
 	song_position_in_beats = position
+	if song_position_in_beats > 36:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 1
+		spawn_4_beat = 1
 	if song_position_in_beats > 404:
-		Global.set_score(score)
-		Global.combo = max_combo
-		Global.great = great
-		Global.good = good
-		Global.okay = okay
-		Global.missed = missed
+		$Global.set_score(score)
+		$Global.combo = max_combo
+		$Global.great = great
+		$Global.good = good
+		$Global.meh = meh
+		$Global.missed = missed
 
 func _spawn_notes(to_spawn):
 	if to_spawn > 0:
-		lane = randi()
-		instance = note.instance()
+		lane = randi() % 3 + 1
+		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
+
 	if to_spawn > 1:
-		while lane == randi() % 3:
-			rand = randi() % 3
+		while true:
+			rand = randi() % 3 + 1
+			if lane != rand:
+				break
+
 		lane = rand
-		instance = note.instance()
+		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
 
@@ -80,7 +93,7 @@ func increment_score(num):
 		missed += 1
 	
 	score += num * combo
-	$Label.text = score
+	$Label.text = str(score)
 	if combo > max_combo:
 		max_combo  = combo
 		
@@ -90,3 +103,7 @@ func increment_score(num):
 		$ComboText.text = str(combo) + " combo"
 	else:
 		$ComboText.text = ""
+
+func reset_combo():
+	combo = 0
+	$ComboText.text = ""

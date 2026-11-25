@@ -26,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed(input):
 			frame = 1
 		elif event.is_action_released(input):
+			frame = 0
 			$PushTimer.start()
 
 

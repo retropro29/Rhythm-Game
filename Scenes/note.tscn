@@ -1,3 +1,49 @@
 [gd_scene format=3 uid="uid://igy623ittbb1"]
 
+[ext_resource type="Script" uid="uid://b0ndrht400r5r" path="res://Scripts/note.gd" id="1_ucs03"]
+[ext_resource type="Texture2D" uid="uid://byf4ot8eal5vj" path="res://Assets/arrows.webp" id="2_poybh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfx1k"]
+atlas = ExtResource("2_poybh")
+region = Rect2(0, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85erj"]
+atlas = ExtResource("2_poybh")
+region = Rect2(116, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnjcn"]
+atlas = ExtResource("2_poybh")
+region = Rect2(174, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poybh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfx1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85erj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnjcn")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Note" type="Area2D" unique_id=561678300]
+script = ExtResource("1_ucs03")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74485707]
+sprite_frames = SubResource("SpriteFrames_poybh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281053081]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=912881397]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1886597309]
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1308452076]
+offset_right = 40.0
+offset_bottom = 23.0

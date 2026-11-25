@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cfu8snd32lfyy"]
+
+[ext_resource type="Script" uid="uid://duh7t1dfjn7hx" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cox345px8b1rx" path="res://Scenes/conductor.tscn" id="2_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bjeusr273dwnp" path="res://Scenes/global.tscn" id="3_wowpa"]
+[ext_resource type="PackedScene" uid="uid://b36cvbxjxvbam" path="res://Scenes/arrow_button.tscn" id="4_wowpa"]
+[ext_resource type="Texture2D" uid="uid://byf4ot8eal5vj" path="res://Assets/arrows.webp" id="5_i6g32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l0tm"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(0, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v158k"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(0, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5fhvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l0tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v158k")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4fw4"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(116, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldgsr"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(116, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcfas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4fw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldgsr")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5yvi"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(174, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rku1e"]
+atlas = ExtResource("5_i6g32")
+region = Rect2(174, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0yuj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5yvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rku1e")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node2D" unique_id=51100146]
+script = ExtResource("1_wrm1d")
+
+[node name="Conductor" parent="." unique_id=1535203407 instance=ExtResource("2_3dryh")]
+bpm = 111
+
+[node name="Global" parent="." unique_id=1344048176 instance=ExtResource("3_wowpa")]
+
+[node name="Label" type="Label" parent="." unique_id=1060729106]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ComboText" type="Label" parent="." unique_id=262053512]
+offset_top = 23.0
+offset_right = 40.0
+offset_bottom = 46.0
+
+[node name="LeftArrow" parent="." unique_id=35118322 instance=ExtResource("4_wowpa")]
+sprite_frames = SubResource("SpriteFrames_5fhvk")
+input = "left"
+
+[node name="UpArrow" parent="." unique_id=2465652 instance=ExtResource("4_wowpa")]
+sprite_frames = SubResource("SpriteFrames_wcfas")
+input = "up"
+
+[node name="RightArrow" parent="." unique_id=893010684 instance=ExtResource("4_wowpa")]
+sprite_frames = SubResource("SpriteFrames_w0yuj")
+input = "right"

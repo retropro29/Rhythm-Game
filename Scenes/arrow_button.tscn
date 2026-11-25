@@ -2,19 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bfyr5ck2p73ej" path="res://Scripts/arrow_button.gd" id="1_5fhvk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
+size = Vector2(80, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6g32"]
+size = Vector2(80, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
+size = Vector2(80, 200)
+
 [node name="ArrowButton" type="AnimatedSprite2D" unique_id=35118322]
 script = ExtResource("1_5fhvk")
 
 [node name="Great area" type="Area2D" parent="." unique_id=1293499227]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Great area" unique_id=264705089]
+shape = SubResource("RectangleShape2D_wowpa")
+debug_color = Color(0, 0.64029205, 0.1754615, 1)
 
 [node name="Good area" type="Area2D" parent="." unique_id=168210508]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Good area" unique_id=1389481141]
+shape = SubResource("RectangleShape2D_i6g32")
+debug_color = Color(0.8666667, 0.3529412, 0, 0.5568628)
 
 [node name="Meh area" type="Area2D" parent="." unique_id=1988516357]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meh area" unique_id=1993081700]
+shape = SubResource("RectangleShape2D_1l0tm")
+debug_color = Color(0.72944677, 0.4236925, 0.56939113, 0.41960785)
 
 [node name="PushTimer" type="Timer" parent="." unique_id=182217403]
