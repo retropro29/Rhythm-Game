@@ -3,8 +3,6 @@ extends AudioStreamPlayer
 @export var bpm: = 100
 @export var measures: = 4
 
-@onready var global: Node2D = $"../Global"
-
 
 #Tracks beat + song pos
 var song_position = 0.0
@@ -17,11 +15,8 @@ var measure = 1
 var closest = 0
 var time_off_beat = 0.0
 
-var song_in_beat = stream.get_length()/sec_per_beat
-
 
 func _ready() -> void:
-	print(song_in_beat)
 	sec_per_beat = 60.0/bpm
 
 func _physics_process(_delta) -> void:
@@ -30,13 +25,15 @@ func _physics_process(_delta) -> void:
 		song_position -= AudioServer.get_output_latency()
 		song_position_in_beats = int(floor(song_position/sec_per_beat)) + beats_before_start
 		_report_beat()
+	else:
+		print(song_position_in_beats)
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
 		if measure > measures:
 			measure = 1
-		global.beat.emit(song_position_in_beats)
-		global.measure.emit(measure)
+		Global.beat.emit(song_position_in_beats)
+		Global.measure.emit(measure)
 		last_reported_beat = song_position_in_beats
 		measure += 1
 

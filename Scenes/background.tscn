@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://brmluyxcwmg76"]
+
+[ext_resource type="Script" uid="uid://cjbth11ukfmgi" path="res://Scripts/background.gd" id="1_pojwb"]
+[ext_resource type="Texture2D" uid="uid://bhm0umq44rxg2" path="res://icon.svg" id="1_sn1xx"]
+
+[sub_resource type="Animation" id="Animation_pojwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4aqey"]
+resource_name = "pulse"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.6, 0.6), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgxeb"]
+_data = {
+&"RESET": SubResource("Animation_pojwb"),
+&"pulse": SubResource("Animation_4aqey")
+}
+
+[node name="Background" type="CanvasLayer" unique_id=1029839444]
+layer = -1
+script = ExtResource("1_pojwb")
+
+[node name="Control" type="Control" parent="." unique_id=1121389292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1650694084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.4938488, 0.3989874, 0.57254905)
+
+[node name="Control" type="Control" parent="Control" unique_id=1432959529]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Control" unique_id=24499577]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_xgxeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Control" unique_id=1507470343]
+position = Vector2(992, 168)
+texture = ExtResource("1_sn1xx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=227477312]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = 1.0
+offset_right = 138.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.23707694, 0.010720114, 0.26518688, 1)

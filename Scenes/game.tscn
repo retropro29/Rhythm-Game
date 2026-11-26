@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjeusr273dwnp" path="res://Scenes/global.tscn" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://b36cvbxjxvbam" path="res://Scenes/arrow_button.tscn" id="4_wowpa"]
 [ext_resource type="Texture2D" uid="uid://byf4ot8eal5vj" path="res://Assets/arrows.webp" id="5_i6g32"]
+[ext_resource type="PackedScene" uid="uid://brmluyxcwmg76" path="res://Scenes/background.tscn" id="6_i6g32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l0tm"]
 atlas = ExtResource("5_i6g32")
@@ -103,3 +104,5 @@ input = "up"
 position = Vector2(656, 568)
 sprite_frames = SubResource("SpriteFrames_w0yuj")
 input = "right"
+
+[node name="Background" parent="." unique_id=1029839444 instance=ExtResource("6_i6g32")]

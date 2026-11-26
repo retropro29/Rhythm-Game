@@ -11,7 +11,6 @@ var meh = 0
 var missed = 0
 var grade = "NA"
 
-
 func set_score(new):
 	score = new
 	if good + meh + missed == 0:

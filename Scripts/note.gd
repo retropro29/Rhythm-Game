@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 			get_parent().reset_combo()
 	else:
 		$Node2D.position.y -= speed * delta
+		$CPUParticles2D.emitting = true
 
 func initialize(lane) -> void:
 	if lane == 1:

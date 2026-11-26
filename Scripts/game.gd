@@ -26,8 +26,8 @@ var spawn_4_beat = 0
 func _ready() -> void:
 	randomize()
 	$Conductor.play_from_beat(0,8)
-	$Global.beat.connect(_on_Conductor_beat)
-	$Global.measure.connect(_on_Conductor_measure)
+	Global.beat.connect(_on_Conductor_beat)
+	Global.measure.connect(_on_Conductor_measure)
 
 func _input(event):
 	if event.is_action("escape"):
@@ -61,7 +61,7 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 225:
+	if song_position_in_beats >= 204:
 		print("song over")
 		Global.set_score(score)
 		Global.combo = max_combo
@@ -79,15 +79,13 @@ func _spawn_notes(to_spawn):
 		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
-	else:
-		print(song_position_in_beats)
-
+		
 	if to_spawn > 1:
 		while true:
 			rand = randi() % 3 + 1
 			if lane != rand:
 				break
-
+		
 		lane = rand
 		instance = note.instantiate()
 		instance.initialize(lane)
