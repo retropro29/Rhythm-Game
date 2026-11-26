@@ -25,7 +25,7 @@ var spawn_4_beat = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	$Conductor.play_from_beat(150,8)
+	$Conductor.play_from_beat(0,8)
 	$Global.beat.connect(_on_Conductor_beat)
 	$Global.measure.connect(_on_Conductor_measure)
 
@@ -47,29 +47,40 @@ func _on_Conductor_measure(position):
 func _on_Conductor_beat(position):
 	song_position_in_beats = position
 	if song_position_in_beats > 36:
+		spawn_1_beat = 0
+		spawn_2_beat = 2
+		spawn_3_beat = 0
+		spawn_4_beat = 2
+	if song_position_in_beats > 70:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 204:
+	if song_position_in_beats > 100:
+		spawn_1_beat = 1
+		spawn_2_beat = 1
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 225:
 		print("song over")
-		$Global.set_score(score)
-		$Global.combo = max_combo
-		$Global.great = great
-		$Global.good = good
-		$Global.meh = meh
-		$Global.missed = missed
+		Global.set_score(score)
+		Global.combo = max_combo
+		Global.great = great
+		Global.good = good
+		Global.meh = meh
+		Global.missed = missed
 		if get_tree().change_scene_to_file("res://Scenes/end_screen.tscn") != OK:
 			print("Error changing scenes")
 
 
 func _spawn_notes(to_spawn):
-	print("note spawned")
 	if to_spawn > 0:
 		lane = randi() % 3 + 1
 		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
+	else:
+		print(song_position_in_beats)
 
 	if to_spawn > 1:
 		while true:

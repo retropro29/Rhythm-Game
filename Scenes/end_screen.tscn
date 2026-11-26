@@ -7,6 +7,9 @@ line_spacing = 10.0
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_wowpa"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="End screen" type="CanvasLayer" unique_id=750390741]
 script = ExtResource("1_f2mtv")
 
@@ -28,32 +31,38 @@ label_settings = SubResource("LabelSettings_1ptfn")
 offset_top = 110.0
 offset_right = 40.0
 offset_bottom = 133.0
+label_settings = SubResource("LabelSettings_wowpa")
 
 [node name="Combo" type="Label" parent="." unique_id=587713450]
 offset_top = 142.0
 offset_right = 40.0
 offset_bottom = 165.0
+label_settings = SubResource("LabelSettings_wowpa")
 
 [node name="Great" type="Label" parent="." unique_id=346836742]
 offset_left = 4.0
 offset_top = 215.0
 offset_right = 44.0
 offset_bottom = 238.0
+label_settings = SubResource("LabelSettings_wowpa")
 
 [node name="Good" type="Label" parent="." unique_id=2116824639]
 offset_left = -1.0
 offset_top = 260.0
 offset_right = 140.0
 offset_bottom = 283.0
+label_settings = SubResource("LabelSettings_wowpa")
 
 [node name="Meh" type="Label" parent="." unique_id=1790490552]
 offset_left = 4.0
 offset_top = 323.0
 offset_right = 44.0
 offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_wowpa")
 
 [node name="Missed" type="Label" parent="." unique_id=659962830]
 offset_left = 3.0
 offset_top = 340.0
 offset_right = 43.0
 offset_bottom = 363.0
+label_settings = SubResource("LabelSettings_wowpa")

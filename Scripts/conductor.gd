@@ -17,7 +17,11 @@ var measure = 1
 var closest = 0
 var time_off_beat = 0.0
 
+var song_in_beat = stream.get_length()/sec_per_beat
+
+
 func _ready() -> void:
+	print(song_in_beat)
 	sec_per_beat = 60.0/bpm
 
 func _physics_process(_delta) -> void:
