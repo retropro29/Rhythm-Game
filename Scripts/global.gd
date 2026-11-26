@@ -15,11 +15,11 @@ func set_score(new):
 	score = new
 	if good + meh + missed == 0:
 		grade = "SS"
-	elif score > 250000:
-		grade = "S"
 	elif score > 200000:
-		grade = "A"
+		grade = "S"
 	elif score > 150000:
+		grade = "A"
+	elif score > 100000:
 		grade = "B"
 	elif score > 70000:
 		grade = "C"

@@ -37,6 +37,10 @@ func _report_beat():
 		last_reported_beat = song_position_in_beats
 		measure += 1
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("getTime"):
+		print(song_position_in_beats)
+
 func play_with_beat_offsett(num):
 	beats_before_start = num
 	$StartTimer.wait_time = sec_per_beat

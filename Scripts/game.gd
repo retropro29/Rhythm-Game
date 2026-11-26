@@ -56,10 +56,25 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 1
 		spawn_3_beat = 1
 		spawn_4_beat = 1
-	if song_position_in_beats > 100:
+	if song_position_in_beats > 102:
+		spawn_1_beat = 0
+		spawn_2_beat = 0
+		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 104:
+		spawn_1_beat = 1
+		spawn_2_beat = 2
+		spawn_3_beat = 1
+		spawn_4_beat = 2
+	if song_position_in_beats > 134:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
 		spawn_3_beat = 1
+		spawn_4_beat = 1
+	if song_position_in_beats > 170:
+		spawn_1_beat = 0
+		spawn_2_beat = 1
+		spawn_3_beat = 0
 		spawn_4_beat = 1
 	if song_position_in_beats >= 204:
 		print("song over")
@@ -71,7 +86,6 @@ func _on_Conductor_beat(position):
 		Global.missed = missed
 		if get_tree().change_scene_to_file("res://Scenes/end_screen.tscn") != OK:
 			print("Error changing scenes")
-
 
 func _spawn_notes(to_spawn):
 	if to_spawn > 0:
